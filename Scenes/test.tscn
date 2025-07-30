@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b0xl80644jxlb" path="res://Assets/sol.png" id="1_8od7v"]
 [ext_resource type="PackedScene" uid="uid://8mlbt4h4t0yi" path="res://Character/character.tscn" id="2_qc4db"]
-[ext_resource type="Script" uid="uid://mkcmoebp41ly" path="res://Character/CharacterScript.gd" id="4_ys1qc"]
+[ext_resource type="Script" uid="uid://mkcmoebp41ly" path="res://Scripts/CharacterScript.gd" id="4_ys1qc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys1qc"]
 texture = ExtResource("1_8od7v")
