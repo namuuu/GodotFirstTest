@@ -43,3 +43,4 @@ func _process(delta: float) -> void:
 func bufferTimerFinish() -> void:
 	print("Advancement step")
 	isReadyToAdvance.set("hasBufferedTimerCooldown", true)
+	bufferTimer.stop()
