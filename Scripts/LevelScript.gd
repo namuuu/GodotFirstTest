@@ -1,16 +1,26 @@
 extends Node
 
 func _ready() -> void:
-	var levelSize = get_meta("LevelSize")
+	var levelSize = get_tree().current_scene.get_meta("LevelSize")
 	print(levelSize)
 	
-func getTileInfo(x: int, y: int):
+func getOrigin() -> Vector2:
+	return get_tree().current_scene.get_meta("LevelOrigin")
 	
-	if (x < get_meta("LevelOrigin").x || y < get_meta("LevelOrigin").y) :
+func getSize() -> Vector2:
+	return get_tree().current_scene.get_meta("LevelSize")
+	
+func getTileInfo(x: int, y: int) -> int:
+	if (x < getOrigin().x || y < getOrigin().y) :
 		return OBSTACLE_TYPE.WALL
 		
-	if (x > get_meta("LevelOrigin").x + get_meta("LevelSize").x || y > get_meta("LevelOrigin").y + get_meta("LevelSize").y):
+	if (x > getOrigin().x + getSize().x || y > getOrigin().y + getSize().y):
 		return OBSTACLE_TYPE.WALL
+		
+	return OBSTACLE_TYPE.NONE
+	
+func getTileType(x: int, y: int):
+	return Level.OBSTACLE_TYPE.find_key(getTileInfo(x, y))
 
 enum OBSTACLE_TYPE {
 	NONE,
