@@ -1,7 +1,7 @@
 extends Node
 
 var isReadyToAdvance: Dictionary = {
-	#isPlayerReady = false,
+	isPlayerReady = false,
 	hasBufferedTimerCooldown = true
 };
 
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	advance = true
 	
 	isReadyToAdvance = {
-		#isPlayerReady = false,
+		isPlayerReady = true,
 		hasBufferedTimerCooldown = false
 	};
 	

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwfybatvyuqci"]
+
+[ext_resource type="Texture2D" uid="uid://c40mp3meveyx8" path="res://Assets/play.png" id="1_ltpa0"]
+[ext_resource type="Script" uid="uid://c5o2ktwy3d626" path="res://Scripts/UIButtonScript.gd" id="2_lwtm8"]
+
+[node name="GameUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = 2.0
+offset_right = -7.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 901.0
+offset_top = 486.0
+offset_right = 949.0
+offset_bottom = 526.0
+scale = Vector2(5.44, 5.44)
+texture_normal = ExtResource("1_ltpa0")
+script = ExtResource("2_lwtm8")
+
+[connection signal="button_down" from="TextureButton" to="TextureButton" method="_on_button_down"]
