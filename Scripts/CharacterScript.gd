@@ -9,6 +9,29 @@ var direction: Vector2i = Vector2i.RIGHT
 var go = false 
 var goal
 
+func _ready() -> void:
+	# Move player to spawn
+	var spawnCoordText = Level.getLevelData()["playerSpawn"].split(';')
+	var spawnLocation: Vector2 = Vector2(int(spawnCoordText[0]) * 16 - 8, int(spawnCoordText[1]) * 16 + 8)
+	position = spawnLocation
+	
+	# Change player direction
+	var spawnDirectionText = Level.getLevelData()["playerSpawnDirection"]
+	match spawnDirectionText:
+		"up":
+			direction = Vector2i.UP
+		"left":
+			direction = Vector2i.LEFT
+		"right":
+			direction = Vector2i.RIGHT
+		"down":
+			direction = Vector2i.DOWN
+	playStandingAnimation()
+	
+	print("I am in ", getPosition())
+	print("Forward is ", seeForward())
+	print("I am looking ", direction)
+
 func _process(delta: float) -> void:
 	if Global.advance == true:
 		go = true
